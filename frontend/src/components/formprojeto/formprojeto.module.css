@@ -1,0 +1,30 @@
+.form_style {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3.5rem;
+}
+
+.label_style {
+    text-align: center;
+    margin-top: 0.5rem;
+    margin-bottom: 0.7rem;
+}
+
+.input_style {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    width: 500px;
+}
+
+@media (max-width: 800px){
+    .input_style {
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        width: 350px;
+    }
+}

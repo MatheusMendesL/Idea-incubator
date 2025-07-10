@@ -1,0 +1,32 @@
+.link{
+    text-decoration: none;
+    color:white;
+}
+
+.card_cg{
+    background-color:#feb322;
+    width: 70rem;
+    border-radius: 2%;
+    display: flex;
+}
+
+.body_card{
+    text-align: end;
+}
+
+.div_pai{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+
+@media (max-width:800px)
+{
+    .card_cg{
+        background-color:#feb322;
+        width: 20rem;
+        border-radius: 2%;
+        display: flex;
+    }
+}

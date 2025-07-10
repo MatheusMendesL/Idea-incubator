@@ -1,0 +1,89 @@
+CREATE DATABASE incubate;
+USE incubate;
+
+CREATE TABLE `alunos` (
+	`ID_cliente` INT(10) NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(200) NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	`nasc` DATE NOT NULL,
+	`escola` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	`pass` VARCHAR(200) NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	PRIMARY KEY (`ID_cliente`) USING BTREE
+)
+COLLATE='utf8mb4_0900_ai_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=1
+;
+
+CREATE TABLE `projetos` (
+	`ID_project` INT(10) NOT NULL AUTO_INCREMENT,
+	`Name_project` VARCHAR(200) NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	`description` LONGTEXT NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	`ID_aluno` INT(10) NOT NULL,
+	`data_criacao` DATE NOT NULL,
+	PRIMARY KEY (`ID_project`) USING BTREE,
+	INDEX `ID_aluno` (`ID_aluno`) USING BTREE,
+	CONSTRAINT `ID_aluno` FOREIGN KEY (`ID_aluno`) REFERENCES `alunos` (`ID_cliente`) ON UPDATE CASCADE ON DELETE CASCADE
+)
+COLLATE='utf8mb4_0900_ai_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=1
+;
+
+
+CREATE TABLE `users` (
+	`ID_user` INT(10) NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(200) NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	`passwrd` VARCHAR(200) NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	PRIMARY KEY (`ID_user`) USING BTREE
+)
+COLLATE='utf8mb4_0900_ai_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=1
+;
+
+
+CREATE TABLE `interacoes` (
+	`ID_interacao` INT(10) NOT NULL AUTO_INCREMENT,
+	`ID_project` INT(10) NOT NULL,
+	`ID_user` INT(10) NULL DEFAULT NULL,
+	`tipo` ENUM('Like','Dislike') NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	`Aluno_ID` INT(10) NULL DEFAULT NULL,
+	PRIMARY KEY (`ID_interacao`) USING BTREE,
+	INDEX `Aluno_ID` (`Aluno_ID`) USING BTREE,
+	INDEX `ID_user` (`ID_user`) USING BTREE,
+	INDEX `ID_projeto` (`ID_project`) USING BTREE,
+	CONSTRAINT `Aluno_ID` FOREIGN KEY (`Aluno_ID`) REFERENCES `alunos` (`ID_cliente`) ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT `ID_projeto` FOREIGN KEY (`ID_project`) REFERENCES `projetos` (`ID_project`) ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT `ID_user` FOREIGN KEY (`ID_user`) REFERENCES `users` (`ID_user`) ON UPDATE CASCADE ON DELETE CASCADE
+)
+COLLATE='utf8mb4_0900_ai_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=1
+;
+
+
+CREATE TABLE `comentarios` (
+	`ID_comentario` INT(10) NOT NULL AUTO_INCREMENT,
+	`ID_project` INT(10) NOT NULL DEFAULT '0',
+	`data_comentario` DATETIME NOT NULL,
+	`ID_user` INT(10) NULL DEFAULT NULL,
+	`ID_aluno` INT(10) NULL DEFAULT NULL,
+	`comentario` TEXT NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	PRIMARY KEY (`ID_comentario`) USING BTREE,
+	INDEX `ID_usuario` (`ID_user`) USING BTREE,
+	INDEX `ID_alunos` (`ID_aluno`) USING BTREE,
+	INDEX `ID_projetos` (`ID_project`) USING BTREE,
+	CONSTRAINT `ID_alunos` FOREIGN KEY (`ID_aluno`) REFERENCES `alunos` (`ID_cliente`) ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT `ID_projetos` FOREIGN KEY (`ID_project`) REFERENCES `projetos` (`ID_project`) ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT `ID_usuario` FOREIGN KEY (`ID_user`) REFERENCES `users` (`ID_user`) ON UPDATE CASCADE ON DELETE CASCADE
+)
+COLLATE='utf8mb4_0900_ai_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=1
+;
+
+
+
+
+
+

@@ -1,0 +1,9 @@
+.input_style {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    width: 200px;
+    margin-top: 20px;
+    margin-right: 20px;
+}

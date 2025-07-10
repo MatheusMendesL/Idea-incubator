@@ -1,0 +1,29 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  flex: 1;
+}
+
+footer {
+  background-color: #feb322;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+body.dark-mode{
+  background-color: black;
+  color: white;
+}
+
+@media (max-width: 800px){
+  .page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 95vh;
+  }
+}

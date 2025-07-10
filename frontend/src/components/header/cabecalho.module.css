@@ -1,0 +1,88 @@
+.header {
+  max-width: 100%;
+  background-color: #feb322;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.text {
+  font-size: 2rem;
+  margin: 10px;
+  color: black;
+}
+
+.img {
+  width: 150px;
+  height: 140px;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.div_logins {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+  text-align: center;
+}
+
+.link:hover {
+  color: #2147af;
+  transition: 0.5s ease-in;
+}
+
+.div_links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding-bottom: 10px;
+}
+
+.link_btn {
+  text-decoration: none;
+  color: white;
+}
+
+.btn_perfil {
+  font-size: 1rem;
+}
+
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .text {
+    font-size: 1.2rem;
+    margin: 5px;
+  }
+
+  .img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .div_links {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .btn_perfil {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+  }
+}
+

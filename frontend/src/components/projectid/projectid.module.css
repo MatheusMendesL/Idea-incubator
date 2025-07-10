@@ -1,0 +1,67 @@
+.div_project {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.name_project {
+    font-size: 4rem;
+}
+
+.desc_project {
+    font-size: 1rem;
+}
+
+.div_project_infos {
+    text-align: center;
+}
+
+.comentarios_container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.comentarios_scroll {
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 30rem;
+}
+
+.comentario {
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.coment, .coment_user{
+    color: black;
+}
+
+
+@media (max-width: 800px) {
+    .div_project {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .comentarios_scroll {
+        width: 100%;
+    }
+
+    .name_project {
+        font-size: 2.5rem;
+    }
+
+    .desc_project {
+        font-size: 1.5rem;
+    }
+
+    .input_style {
+        max-width: 100%;
+    }
+}
